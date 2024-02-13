@@ -3,12 +3,12 @@ import numpy as np
 
 # Define the parameter range
 t = np.linspace(0, 10, 200)
-gsize = 30
-a = 1
+gsize = 10
+a = -t
 b = 1
 c = 0
 d = 0
-e = 1
+e = t
 f = 1
 g = 0
 h = 0
@@ -16,15 +16,13 @@ m = 1
 n = 1
 
 # Define the parametric equations
-x = a * np.sin(b * t + c)**m + d
+x = a * np.cos(b * t + c)**m + d
 # x = a cos(bt + c) + d
 
-y = e * np.cos(f * t + g)**n + h
+y = e * np.sin(f * t + g)**n + h
 # y = e sin(ft + g) + h
 
 y = y * 1j # Multiply y by i
-
-
 
 # Create the plot
 plt.figure(figsize=(6,6))
@@ -39,8 +37,12 @@ plt.xlabel('Real')
 plt.ylabel('Imaginary')
 plt.title('Parametric Curve on Argand Diagram')
 
-# Set the limits of x and y axes
+# Plot the start and end points
+plt.scatter(x.real[0], y.imag[0], color='green')  # Start point in green
+plt.scatter(x.real[20], y.imag[20], color='blue')  # Indicator point in blue
+plt.scatter(x.real[-1], y.imag[-1], color='red')  # End point in red
 
+# Set the limits of x and y axes
 plt.xlim(-gsize, gsize)
 plt.ylim(-gsize, gsize)
 
