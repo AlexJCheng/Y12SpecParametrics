@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+#Remember on laptop you have paraincard.py
 
 # Define the parameter range
 t = np.linspace(0, 10, 200)
