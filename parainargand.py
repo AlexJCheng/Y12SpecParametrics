@@ -1,18 +1,18 @@
 import matplotlib.pyplot as plt
 import numpy as np
-#Remember on laptop you have paraincard.py
 
 # Define the parameter range
-t = np.linspace(0, 10, 200)
-gsize = 10
-a = -t
+t = np.linspace(0, 30, 300)
+sq = False
+gsize = 5
+a = 1
 b = 1
 c = 0
 d = 0
-e = t
+e = 1
 f = 1
 g = 0
-h = 0
+h = t
 m = 1
 n = 1
 
@@ -38,16 +38,19 @@ plt.axvline(0, color='black', linewidth=1)  # Vertical line (x=0)
 # Set labels and title
 plt.xlabel('Real')
 plt.ylabel('Imaginary')
-plt.title('Parametric Curve on Argand Diagram')
+#plt.title("Parametric Curve on Argand Diagram")
+#plt.title(f'x = {a}cos({b}t+{c})+({d}), y = {e}cos({f}t+{g})+({h})')
+plt.title(f'x = {a}cos(t)+(0), y = {e}sin(t)+(t)')
 
 # Plot the start and end points
 plt.scatter(x.real[0], y.imag[0], color='green')  # Start point in green
-plt.scatter(x.real[20], y.imag[20], color='blue')  # Indicator point in blue
+plt.scatter(x.real[10], y.imag[10], color='blue')  # Indicator point in blue
 plt.scatter(x.real[-1], y.imag[-1], color='red')  # End point in red
 
 # Set the limits of x and y axes
-plt.xlim(-gsize, gsize)
-plt.ylim(-gsize, gsize)
+if sq == True:
+    plt.xlim(-gsize, gsize)
+    plt.ylim(-gsize, gsize)
 
 # Equal aspect ratio ensures that the scale on the x-axis is the same as the y-axis
 plt.gca().set_aspect('equal', adjustable='box')
@@ -57,3 +60,4 @@ plt.grid(True)
 
 # Show the plot
 plt.show()
+print(x[-1], y[-1])
